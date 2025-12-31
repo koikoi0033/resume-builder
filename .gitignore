@@ -110,3 +110,45 @@ jspm_packages/
 *.old
 *.orig
 
+# ============================================================================
+# Rails / Backend
+# ============================================================================
+# Backend logs and tempfiles
+backend/log/*
+!backend/log/.keep
+backend/tmp/*
+!backend/tmp/.keep
+backend/tmp/cache/bootsnap*
+backend/tmp/pids/*
+!backend/tmp/pids/.keep
+backend/tmp/storage/*
+!backend/tmp/storage/.keep
+
+# Backend credentials
+backend/config/master.key
+backend/config/credentials/*.key
+backend/config/credentials/*.key.yml
+
+# Backend storage
+backend/storage/*
+!backend/storage/.keep
+
+# Backend dependencies
+backend/.bundle
+backend/vendor/bundle
+backend/vendor/cache
+
+# Backend coverage
+backend/coverage/
+backend/spec/tmp/
+
+# Backend precompiled assets
+backend/public/assets
+backend/public/packs
+backend/public/packs-test
+backend/public/system
+backend/public/uploads
+
+# Kamal deployment
+backend/.kamal/
+
