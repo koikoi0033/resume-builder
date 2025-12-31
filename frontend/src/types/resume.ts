@@ -248,23 +248,25 @@ export const workExperienceSchema = z
   );
 
 /**
- * プロフィールのzodスキーマ
+ * プロフィールのzodスキーマ（フォーム用 - default値なし）
  */
-export const profileSchema = z.object({
+export const profileFormSchema = z.object({
   id: z.number().int().positive().optional(),
   name: z.string().min(1, "氏名は必須です"),
   birthday: pastOrCurrentDateSchema,
   gender: genderSchema,
   career_profile: z.string().nullable().optional(),
   job_summary: z.string().nullable().optional(),
-  document_date: pastOrCurrentDateSchema.default(() => {
-    const today = new Date();
-    return `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
-  }),
+  document_date: pastOrCurrentDateSchema,
   created_at: z.string().optional(),
   updated_at: z.string().optional(),
   work_experiences: z.array(workExperienceSchema).optional(),
 });
+
+/**
+ * プロフィールのzodスキーマ（完全版）
+ */
+export const profileSchema = profileFormSchema;
 
 // ============================================================================
 // 型推論用のヘルパー型

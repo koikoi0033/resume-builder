@@ -3,7 +3,7 @@ class Profile < ApplicationRecord
   has_many :work_experience_skills, through: :work_experiences
   has_many :skills, through: :work_experience_skills
 
-  enum gender: {
+  enum :gender, {
     male: 0,
     female: 1,
     other: 2,
